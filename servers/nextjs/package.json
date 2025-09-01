@@ -45,7 +45,7 @@
     "jsonrepair": "^3.12.0",
     "lucide-react": "^0.447.0",
     "marked": "^15.0.11",
-    "next": "^14.2.14",
+    "next": "^14.2.32",
    
     "react": "^18",
     "react-dom": "^18",
