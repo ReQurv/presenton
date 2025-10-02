@@ -6,7 +6,7 @@ export const layoutName = "Intro Pitch Deck Slide";
 export const layoutDescription =
   "A visually appealing introduction slide for a pitch deck, featuring a large title, company name, date, and contact information with a modern design. This Slide is always the first slide in a pitch deck, setting the tone for the presentation with a clean and professional look.";
 const introPitchDeckSchema = z.object({
-  title: z.string().min(2).max(15).default("Pitch Deck").meta({
+  title: z.string().min(2).max(30).default("Pitch Deck").meta({
     description: "Main title of the slide",
   }),
   description: z.string().default("").meta({
@@ -68,8 +68,8 @@ const IntroPitchDeckSlide: React.FC<IntroSlideLayoutProps> = ({
       >
         {/* Top Header */}
         <div className="absolute top-8 left-10 right-10 flex justify-between items-center text-[#1E4CD9] text-sm font-semibold">
-          <p>{slideData?.companyName}</p>
-          <p>{slideData?.date}</p>
+          {/* <p>{slideData?.companyName}</p>
+          <p>{slideData?.date}</p> */}
         </div>
 
         {/* Main Title */}

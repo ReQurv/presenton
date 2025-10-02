@@ -26,7 +26,7 @@ const scatterChartDataSchema = z.object({
 })
 
 const chartWithBulletsSlideSchema = z.object({
-    title: z.string().min(3).max(40).default('Market Size').meta({
+    title: z.string().min(3).max(80).default('Market Size').meta({
         description: "Main title of the slide",
     }),
     description: z.string().min(10).max(150).default('Businesses face challenges with outdated technology and rising costs, limiting efficiency and growth in competitive markets.').meta({
@@ -53,10 +53,10 @@ const chartWithBulletsSlideSchema = z.object({
         description: "Whether to show chart tooltip",
     }),
     bulletPoints: z.array(z.object({
-        title: z.string().min(2).max(80).meta({
+        title: z.string().min(2).max(160).meta({
             description: "Bullet point title",
         }),
-        description: z.string().min(10).max(150).meta({
+        description: z.string().min(10).max(300).meta({
             description: "Bullet point description",
         }),
         icon: IconSchema,
@@ -244,7 +244,7 @@ const ChartWithBulletsSlideLayout: React.FC<ChartWithBulletsSlideLayoutProps> = 
                     background:"var(--card-background-color,#ffffff)"
                 }}
             >
-                {(slideData as any)?.__companyName__ && (
+                {/* {(slideData as any)?.__companyName__ && (
                     <div className="absolute top-0 left-0 right-0 px-8 sm:px-12 lg:px-20 pt-4">
                         <div className="flex items-center gap-4">
                             <span className="text-sm sm:text-base font-semibold" style={{ color: 'var(--text-heading-color, #111827)' }}>
@@ -253,7 +253,7 @@ const ChartWithBulletsSlideLayout: React.FC<ChartWithBulletsSlideLayoutProps> = 
                             <div className="h-[2px] flex-1 opacity-70" style={{ backgroundColor: 'var(--text-heading-color, #111827)' }}></div>
                         </div>
                     </div>
-                )}
+                )} */}
                 {/* Main Content */}
                 <div className="flex h-full px-8 sm:px-12 lg:px-20 pt-8 pb-8">
                     {/* Left Section - Title, Description, Chart */}

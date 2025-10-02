@@ -755,7 +755,7 @@ class LLMClient:
         max_tokens: Optional[int] = None,
         depth: int = 0,
     ):
-        extra_body = {"enable_thinking": False} if self.disable_thinking() else None
+        extra_body = {"enable_thinking": False, "guided_json": response_format} if self.disable_thinking() else None
         return await self._generate_openai_structured(
             model=model,
             messages=messages,

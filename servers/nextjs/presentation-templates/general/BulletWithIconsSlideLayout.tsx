@@ -8,10 +8,10 @@ export const layoutName = 'Bullet with Icons'
 export const layoutDescription = 'A bullets style slide with main content, supporting image, and bullet points with icons and descriptions.'
 
 const bulletWithIconsSlideSchema = z.object({
-    title: z.string().min(3).max(40).default('Problem').meta({
+    title: z.string().min(3).max(80).default('Problem').meta({
         description: "Main title of the slide",
     }),
-    description: z.string().max(150).default('Businesses face challenges with outdated technology and rising costs, limiting efficiency and growth in competitive markets.').meta({
+    description: z.string().max(300).default('Businesses face challenges with outdated technology and rising costs, limiting efficiency and growth in competitive markets.').meta({
         description: "Main description text explaining the problem or topic",
     }),
     image: ImageSchema.default({
@@ -21,10 +21,10 @@ const bulletWithIconsSlideSchema = z.object({
         description: "Supporting image for the slide",
     }),
     bulletPoints: z.array(z.object({
-        title: z.string().min(2).max(60).meta({
+        title: z.string().min(2).max(120).meta({
             description: "Bullet point title",
         }),
-        description: z.string().min(10).max(100).meta({
+        description: z.string().min(10).max(200).meta({
             description: "Bullet point description",
         }),
         icon: IconSchema,
@@ -75,7 +75,7 @@ const BulletWithIconsSlideLayout: React.FC<BulletWithIconsSlideLayoutProps> = ({
                     background:"var(--card-background-color,#ffffff)"
                 }}
             >
-                {(slideData as any)?.__companyName__ && (
+               {/*  {(slideData as any)?.__companyName__ && (
                     <div className="absolute top-0 left-0 right-0 px-8 sm:px-12 lg:px-20 pt-4">
                         <div className="flex items-center gap-4">
                             <span className="text-sm sm:text-base font-semibold" style={{ color: 'var(--text-heading-color, #111827)' }}>
@@ -84,7 +84,7 @@ const BulletWithIconsSlideLayout: React.FC<BulletWithIconsSlideLayoutProps> = ({
                             <div className="h-[2px] flex-1 opacity-70" style={{ backgroundColor: 'var(--text-heading-color, #111827)' }}></div>
                         </div>
                     </div>
-                )}
+                )} */}
 
 
                 {/* Main Content */}

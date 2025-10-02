@@ -7,26 +7,26 @@ export const layoutName = 'Team Slide'
 export const layoutDescription = 'A slide layout showcasing team members with photos, names, positions, and descriptions alongside company information.'
 
 const teamMemberSchema = z.object({
-    name: z.string().min(2).max(50).meta({
+    name: z.string().min(2).max(100).meta({
         description: "Team member's full name"
     }),
-    position: z.string().min(2).max(50).meta({
+    position: z.string().min(2).max(100).meta({
         description: "Job title or position"
     }),
-    description: z.string().max(150).meta({
+    description: z.string().max(300).meta({
         description: "Brief description of the team member (around 100 characters)"
     }),
     image: ImageSchema
 });
 
 const teamSlideSchema = z.object({
-    title: z.string().min(3).max(40).default('Our Team Members').meta({
+    title: z.string().min(3).max(80).default('Our Team Members').meta({
         description: "Main title of the slide",
     }),
-    companyDescription: z.string().min(10).max(150).default('Ginyard International Co. is a leading provider of innovative digital solutions tailored for businesses. Our mission is to empower organizations to achieve their goals through cutting-edge technology and strategic partnerships.').meta({
+    companyDescription: z.string().min(10).max(300).default('Ginyard International Co. is a leading provider of innovative digital solutions tailored for businesses. Our mission is to empower organizations to achieve their goals through cutting-edge technology and strategic partnerships.').meta({
         description: "Company description or team introduction text",
     }),
-    teamMembers: z.array(teamMemberSchema).min(2).max(4).default([
+    teamMembers: z.array(teamMemberSchema).min(2).max(8).default([
         {
             name: 'Juliana Silva',
             position: 'CEO',
@@ -104,7 +104,7 @@ const TeamSlideLayout: React.FC<TeamSlideLayoutProps> = ({ data: slideData }) =>
                     background:"var(--card-background-color,#ffffff)"
                 }}
             >
-                {(slideData as any)?.__companyName__ && (
+                {/* {(slideData as any)?.__companyName__ && (
                     <div className="absolute top-0 left-0 right-0 px-8 sm:px-12 lg:px-20 pt-4">
                         <div className="flex items-center gap-4">
                             <span className="text-sm sm:text-base font-semibold" style={{ color: 'var(--text-heading-color, #111827)' }}>
@@ -113,7 +113,7 @@ const TeamSlideLayout: React.FC<TeamSlideLayoutProps> = ({ data: slideData }) =>
                             <div className="h-[2px] flex-1 opacity-70" style={{ backgroundColor: 'var(--text-heading-color, #111827)' }}></div>
                         </div>
                     </div>
-                )}
+                )} */}
                 {/* Decorative Wave Pattern */}
                 <div className="absolute bottom-0 left-0 w-80 h-40 opacity-10 overflow-hidden">
                     <svg className="w-full h-full" viewBox="0 0 300 150" fill="none">
@@ -127,7 +127,7 @@ const TeamSlideLayout: React.FC<TeamSlideLayoutProps> = ({ data: slideData }) =>
                     {/* Left Section - Title and Company Description */}
                     <div className="flex-1 flex flex-col justify-center pr-8 space-y-6">
                         {/* Title */}
-                        <h1 style={{ color: "var(--text-heading-color,#111827)" }} className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+                        <h1 style={{ color: "var(--text-heading-color,#111827)" }} className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-normal">
                             {slideData?.title || 'Our Team Members'}
                         </h1>
 

@@ -6,7 +6,7 @@ services:
       dockerfile: Dockerfile
     ports:
       # You can replace 5000 with any other port number of your choice to run Presenton on a different port number.
-      - "5000:80"
+      - "5050:80"
     volumes:
       - ./app_data:/app_data
     environment:
@@ -30,6 +30,7 @@ services:
       - WEB_GROUNDING=${WEB_GROUNDING}
       - DATABASE_URL=${DATABASE_URL}
       - DISABLE_ANONYMOUS_TRACKING=${DISABLE_ANONYMOUS_TRACKING}
+      - IMAGE_PROVIDER=${IMAGE_PROVIDER}
 
   production-gpu:
     # image: ghcr.io/presenton/presenton:latest
@@ -45,7 +46,7 @@ services:
               capabilities: [gpu]
     ports:
       # You can replace 5000 with any other port number of your choice to run Presenton on a different port number.
-      - "5000:80"
+      - "5050:80"
     volumes:
       - ./app_data:/app_data
     environment:
@@ -75,7 +76,7 @@ services:
       context: .
       dockerfile: Dockerfile.dev
     ports:
-      - "5000:80"
+      - "5050:80"
     volumes:
       - .:/app
       - ./app_data:/app_data
@@ -100,6 +101,8 @@ services:
       - WEB_GROUNDING=${WEB_GROUNDING}
       - DATABASE_URL=${DATABASE_URL}
       - DISABLE_ANONYMOUS_TRACKING=${DISABLE_ANONYMOUS_TRACKING}
+      - IMAGE_PROVIDER=${IMAGE_PROVIDER}
+
 
   development-gpu:
     build:
@@ -113,7 +116,7 @@ services:
               count: 1
               capabilities: [gpu]
     ports:
-      - "5000:80"
+      - "5050:80"
     volumes:
       - .:/app
       - ./app_data:/app_data

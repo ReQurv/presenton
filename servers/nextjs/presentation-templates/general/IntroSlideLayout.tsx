@@ -7,16 +7,16 @@ export const layoutName = 'Intro Slide'
 export const layoutDescription = 'A clean slide layout with title, description text, presenter info, and a supporting image.'
 
 const introSlideSchema = z.object({
-    title: z.string().min(3).max(40).default('Product Overview').meta({
+    title: z.string().min(3).max(80).default('Product Overview').meta({
         description: "Main title of the slide",
     }),
-    description: z.string().min(10).max(150).default('Our product offers customizable dashboards for real-time reporting and data-driven decisions. It integrates with third-party tools to enhance operations and scales with business growth for improved efficiency.').meta({
+    description: z.string().min(10).max(300).default('Our product offers customizable dashboards for real-time reporting and data-driven decisions. It integrates with third-party tools to enhance operations and scales with business growth for improved efficiency.').meta({
         description: "Main description text content",
     }),
-    presenterName: z.string().min(2).max(50).default('John Doe').meta({
+    presenterName: z.string().min(2).max(100).default('John Doe').meta({
         description: "Name of the presenter",
     }),
-    presentationDate: z.string().min(2).max(50).default('December 2025').meta({
+    presentationDate: z.string().min(2).max(100).default('December 2025').meta({
         description: "Date of the presentation must be the latest date like today's date",
     }),
     image: ImageSchema.default({
@@ -56,7 +56,7 @@ const IntroSlideLayout: React.FC<IntroSlideLayoutProps> = ({ data: slideData }) 
                     ,fontFamily:"var(--heading-font-family,Inter)"
                 }}
             >
-                {(slideData as any)?.__companyName__ && (
+                {/* {(slideData as any)?.__companyName__ && (
                     <div className="absolute top-0 left-0 right-0 px-8 sm:px-12 lg:px-20 pt-4">
                         <div className="flex items-center gap-4">
                             <span className="text-sm sm:text-base font-semibold" style={{ color: 'var(--text-heading-color, #111827)' }}>
@@ -65,7 +65,7 @@ const IntroSlideLayout: React.FC<IntroSlideLayoutProps> = ({ data: slideData }) 
                             <div className="h-[2px] flex-1 opacity-70" style={{ backgroundColor: 'var(--text-heading-color, #111827)' }}></div>
                         </div>
                     </div>
-                )}
+                )} */}
 
 
                 {/* Main Content */}
@@ -84,7 +84,7 @@ const IntroSlideLayout: React.FC<IntroSlideLayoutProps> = ({ data: slideData }) 
                     {/* Right Section - Content */}
                     <div className="flex-1 flex flex-col justify-center pl-8 space-y-6">
                         {/* Title */}
-                        <h1 style={{ color: "var(--text-heading-color,#111827)" }} className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+                        <h1 style={{ color: "var(--text-heading-color,#111827)" }} className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-normal">
                             {slideData?.title || 'Product Overview'}
                         </h1>
 
@@ -97,16 +97,14 @@ const IntroSlideLayout: React.FC<IntroSlideLayoutProps> = ({ data: slideData }) 
                         </p>
 
                         {/* Presenter Section */}
-                        <div style={{background:"var(--card-background-color,rgb(255 255 255 / 0.5))"}} className="bg-white/50 backdrop-blur-sm rounded-lg p-4 lg:p-6 border border-gray-200 shadow-sm">
+                        {/* {<div style={{background:"var(--card-background-color,rgb(255 255 255 / 0.5))"}} className="bg-white/50 backdrop-blur-sm rounded-lg p-4 lg:p-6 border border-gray-200 shadow-sm">
                             <div className="flex items-center gap-4">
-                                {/* Custom Initials Icon */}
                                 <div style={{background:"var(--primary-accent-color,#9333ea)"}} className="w-10 h-10 lg:w-12 lg:h-12 bg-purple-600 rounded-full flex items-center justify-center">
                                     <span className="font-bold text-sm lg:text-base" style={{color:"var(--text-heading-color,#FFFFFF)"}}>
                                         {presenterInitials}
                                     </span>
                                 </div>
                                 
-                                {/* Presenter Info */}
                                 <div className="flex flex-col">
                                     <span style={{color:"var(--text-heading-color,#111827)"}} className="text-lg lg:text-xl font-bold text-gray-900">
                                         {slideData?.presenterName || 'John Doe'}
@@ -116,7 +114,7 @@ const IntroSlideLayout: React.FC<IntroSlideLayoutProps> = ({ data: slideData }) 
                                     </span>
                                 </div>
                             </div>
-                        </div>
+                        </div>} */}
                     </div>
                 </div>
             </div>

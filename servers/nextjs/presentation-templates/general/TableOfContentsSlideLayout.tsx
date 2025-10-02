@@ -10,10 +10,10 @@ const tableOfContentsSlideSchema = z.object({
         number: z.number().min(1).meta({
             description: "Section number"
         }),
-        title: z.string().min(1).max(80).meta({
+        title: z.string().min(1).max(160).meta({
             description: "Section title"
         }),
-        pageNumber: z.string().min(1).max(10).meta({
+        pageNumber: z.string().min(1).max(20).meta({
             description: "Page number for this section"
         })
     })).default([
@@ -60,7 +60,7 @@ const TableOfContentsSlideLayout: React.FC<TableOfContentsSlideLayoutProps> = ({
                     background:"var(--card-background-color,#ffffff)"
                 }}
             >
-                {(slideData as any)?.__companyName__ && (
+                {/* {(slideData as any)?.__companyName__ && (
                     <div className="absolute top-0 left-0 right-0 px-8 sm:px-12 lg:px-20 pt-4">
                         <div className="flex items-center gap-4">
                             <span className="text-sm sm:text-base font-semibold" style={{ color: 'var(--text-heading-color, #111827)' }}>
@@ -69,7 +69,7 @@ const TableOfContentsSlideLayout: React.FC<TableOfContentsSlideLayoutProps> = ({
                             <div className="h-[2px] flex-1 opacity-70" style={{ backgroundColor: 'var(--text-heading-color, #111827)' }}></div>
                         </div>
                     </div>
-                )}
+                )} */}
 
                 {/* Title Section */}
                 <div className="text-center mb-8 sm:mb-12 mt-6">

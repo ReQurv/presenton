@@ -7,10 +7,10 @@ export const layoutName = 'Basic Info'
 export const layoutDescription = 'A clean slide layout with title, description text, and a supporting image.'
 
 const basicInfoSlideSchema = z.object({
-    title: z.string().min(3).max(40).default('Product Overview').meta({
+    title: z.string().min(3).max(80).default('Product Overview').meta({
         description: "Main title of the slide",
     }),
-    description: z.string().min(10).max(150).default('Our product offers customizable dashboards for real-time reporting and data-driven decisions. It integrates with third-party tools to enhance operations and scales with business growth for improved efficiency.').meta({
+    description: z.string().min(10).max(300).default('Our product offers customizable dashboards for real-time reporting and data-driven decisions. It integrates with third-party tools to enhance operations and scales with business growth for improved efficiency.').meta({
         description: "Main description text content",
     }),
     image: ImageSchema.default({
@@ -47,7 +47,7 @@ const BasicInfoSlideLayout: React.FC<BasicInfoSlideLayoutProps> = ({ data: slide
                     background:"var(--card-background-color,#ffffff)"
                 }}
             >
-                {(slideData as any)?.__companyName__ && (
+                {/* {(slideData as any)?.__companyName__ && (
                     <div className="absolute top-0 left-0 right-0 px-8 sm:px-12 lg:px-20 pt-4">
                         <div className="flex items-center gap-4">
                             <span className="text-sm sm:text-base font-semibold" style={{ color: 'var(--text-heading-color, #111827)' }}>
@@ -56,7 +56,7 @@ const BasicInfoSlideLayout: React.FC<BasicInfoSlideLayoutProps> = ({ data: slide
                             <div className="h-[2px] flex-1 opacity-70" style={{ backgroundColor: 'var(--text-heading-color, #111827)' }}></div>
                         </div>
                     </div>
-                )}
+                )} */}
 
 
                 {/* Main Content */}
@@ -75,7 +75,7 @@ const BasicInfoSlideLayout: React.FC<BasicInfoSlideLayoutProps> = ({ data: slide
                     {/* Right Section - Content */}
                     <div className="flex-1 flex flex-col justify-center pl-8 space-y-6">
                         {/* Title */}
-                        <h1 style={{ color: "var(--text-heading-color,#111827)" }} className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+                        <h1 style={{ color: "var(--text-heading-color,#111827)" }} className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-normal">
                             {slideData?.title || 'Product Overview'}
                         </h1>
 

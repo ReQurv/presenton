@@ -6,14 +6,14 @@ export const layoutName = 'Table with Info'
 export const layoutDescription = 'A slide layout with a title at the top, structured table in the middle, and descriptive text at the bottom.'
 
 const tableInfoSlideSchema = z.object({
-    title: z.string().min(3).max(40).default('Market Comparison').meta({
+    title: z.string().min(3).max(80).default('Market Comparison').meta({
         description: "Main title of the slide",
     }),
     tableData: z.object({
-        headers: z.array(z.string().min(1).max(30)).min(2).max(5).meta({
+        headers: z.array(z.string().min(1).max(60)).min(2).max(5).meta({
             description: "Table column headers"
         }),
-        rows: z.array(z.array(z.string().min(1).max(50))).min(2).max(6).meta({
+        rows: z.array(z.array(z.string().min(1).max(100))).min(2).max(6).meta({
             description: "Table rows data - each row should match the number of headers"
         })
     }).default({
@@ -27,7 +27,7 @@ const tableInfoSlideSchema = z.object({
     }).meta({
         description: "Table structure with headers and rows"
     }),
-    description: z.string().min(10).max(200).default('This comparison shows our competitive position in the market. While we currently have a smaller market share, our growth rate significantly exceeds competitors, indicating strong potential for future expansion.').meta({
+    description: z.string().min(10).max(400).default('This comparison shows our competitive position in the market. While we currently have a smaller market share, our growth rate significantly exceeds competitors, indicating strong potential for future expansion.').meta({
         description: "Descriptive text that appears below the table",
     })
 })
@@ -64,7 +64,7 @@ const TableInfoSlideLayout: React.FC<TableInfoSlideLayoutProps> = ({ data: slide
                     background:"var(--card-background-color,#ffffff)"
                 }}
             >
-                {(slideData as any)?.__companyName__ && (
+               {/*  {(slideData as any)?.__companyName__ && (
                     <div className="absolute top-0 left-0 right-0 px-8 sm:px-12 lg:px-20 pt-4">
                         <div className="flex items-center gap-4">
                             <span className="text-sm sm:text-base font-semibold" style={{ color: 'var(--text-heading-color, #111827)' }}>
@@ -73,7 +73,7 @@ const TableInfoSlideLayout: React.FC<TableInfoSlideLayoutProps> = ({ data: slide
                             <div className="h-[2px] flex-1 opacity-70" style={{ backgroundColor: 'var(--text-heading-color, #111827)' }}></div>
                         </div>
                     </div>
-                )}
+                )} */}
                 {/* Decorative Wave Patterns */}
                 <div className="absolute top-0 left-0 w-64 h-full opacity-10 overflow-hidden">
                     <svg className="w-full h-full" viewBox="0 0 200 400" fill="none">

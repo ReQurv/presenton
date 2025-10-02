@@ -8,7 +8,7 @@ export const layoutName = 'Bullet Icons Only'
 export const layoutDescription = 'A slide layout with title, grid of bullet points (title and description) with icons, and a supporting image.'
 
 const bulletIconsOnlySlideSchema = z.object({
-    title: z.string().min(3).max(40).default('Solutions').meta({
+    title: z.string().min(3).max(80).default('Solutions').meta({
         description: "Main title of the slide",
     }),
     image: ImageSchema.default({
@@ -18,10 +18,10 @@ const bulletIconsOnlySlideSchema = z.object({
         description: "Supporting image for the slide",
     }),
     bulletPoints: z.array(z.object({
-        title: z.string().min(2).max(80).meta({
+        title: z.string().min(2).max(160).meta({
             description: "Bullet point title",
         }),
-        subtitle: z.string().min(5).max(150).optional().meta({
+        subtitle: z.string().min(5).max(300).optional().meta({
             description: "Optional short subtitle or brief explanation",
         }),
         icon: IconSchema,
@@ -102,14 +102,14 @@ const BulletIconsOnlySlideLayout: React.FC<BulletIconsOnlySlideLayoutProps> = ({
                 }}
             >
                 {/* {(slideData as any)?.__companyName__ && ( */}
-                    <div className="absolute top-0 left-0 right-0 px-8 sm:px-12 lg:px-20 pt-4">
+                    {/* <div className="absolute top-0 left-0 right-0 px-8 sm:px-12 lg:px-20 pt-4">
                         <div className="flex items-center gap-4">
                             <span className="text-sm sm:text-base font-semibold" style={{ color: 'var(--text-heading-color, #111827)' }}>
                                 {(slideData as any)?.__companyName__ || 'Company Name'}
                             </span>
                             <div className="h-[2px] flex-1 opacity-70" style={{ backgroundColor: 'var(--text-heading-color, #111827)' }}></div>
                         </div>
-                    </div>
+                    </div> */}
                 {/* )} */}
                 {/* Decorative Wave Patterns */}
                 <div className="absolute top-0 left-0 w-32 h-full opacity-10 overflow-hidden">

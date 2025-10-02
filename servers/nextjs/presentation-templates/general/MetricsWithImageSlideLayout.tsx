@@ -7,10 +7,10 @@ export const layoutName = 'Metrics with Image'
 export const layoutDescription = 'A slide layout with supporting image on the left and title, description, and metrics grid on the right. Can be used alternatively with MetricSlide.'
 
 const metricsWithImageSlideSchema = z.object({
-    title: z.string().min(3).max(40).default('Competitive Advantage').meta({   
+    title: z.string().min(3).max(80).default('Competitive Advantage').meta({   
         description: "Main title of the slide",
     }),
-    description: z.string().min(10).max(150).default('Ginyard International Co. stands out by offering custom digital solutions tailored to client needs, alongside long-term support to ensure lasting relationships and continuous adaptation.').meta({
+    description: z.string().min(10).max(300).default('Ginyard International Co. stands out by offering custom digital solutions tailored to client needs, alongside long-term support to ensure lasting relationships and continuous adaptation.').meta({
         description: "Description text below the title",
     }),
     image: ImageSchema.default({
@@ -20,10 +20,10 @@ const metricsWithImageSlideSchema = z.object({
         description: "Supporting image for the slide",
     }),
     metrics: z.array(z.object({
-        label: z.string().min(2).max(100).meta({
+        label: z.string().min(2).max(200).meta({
             description: "Metric label/title"
         }),
-        value: z.string().min(1).max(20).meta({
+        value: z.string().min(1).max(40).meta({
             description: "Metric value (e.g., 200+, 95%, 50%)"
         }),
     })).min(1).max(3).default([
@@ -66,7 +66,7 @@ const MetricsWithImageSlideLayout: React.FC<MetricsWithImageSlideLayoutProps> = 
                     background:"var(--card-background-color,#ffffff)"
                 }}
             >
-                {(slideData as any)?.__companyName__ && (
+                {/* {(slideData as any)?.__companyName__ && (
                     <div className="absolute top-0 left-0 right-0 px-8 sm:px-12 lg:px-20 pt-4">
                         <div className="flex items-center gap-4">
                             <span className="text-sm sm:text-base font-semibold" style={{ color: 'var(--text-heading-color, #111827)' }}>
@@ -75,7 +75,7 @@ const MetricsWithImageSlideLayout: React.FC<MetricsWithImageSlideLayoutProps> = 
                             <div className="h-[2px] flex-1 opacity-70" style={{ backgroundColor: 'var(--text-heading-color, #111827)' }}></div>
                         </div>
                     </div>
-                )}
+                )} */}
                 {/* Decorative Wave Patterns */}
                 <div className="absolute bottom-0 left-0 w-48 h-48 opacity-10 overflow-hidden">
                     <svg className="w-full h-full" viewBox="0 0 200 200" fill="none">
@@ -106,7 +106,7 @@ const MetricsWithImageSlideLayout: React.FC<MetricsWithImageSlideLayoutProps> = 
                     {/* Right Section - Content and Metrics */}
                     <div className="flex-1 flex flex-col justify-center pl-8 space-y-6">
                         {/* Title */}
-                        <h1 style={{ color: "var(--text-heading-color,#111827)" }} className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+                        <h1 style={{ color: "var(--text-heading-color,#111827)" }} className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-normal">
                             {slideData?.title || 'Competitive Advantage'}
                         </h1>
 

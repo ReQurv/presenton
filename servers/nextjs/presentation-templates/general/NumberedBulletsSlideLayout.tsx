@@ -7,7 +7,7 @@ export const layoutName = 'Numbered Bullets'
 export const layoutDescription = 'A slide layout with large title, supporting image, and numbered bullet points with descriptions.'
 
 const numberedBulletsSlideSchema = z.object({
-    title: z.string().min(3).max(40).default('Market Validation').meta({
+    title: z.string().min(3).max(80).default('Market Validation').meta({
         description: "Main title of the slide",
     }),
     image: ImageSchema.default({
@@ -17,10 +17,10 @@ const numberedBulletsSlideSchema = z.object({
         description: "Supporting image for the slide",
     }),
     bulletPoints: z.array(z.object({
-        title: z.string().min(2).max(80).meta({
+        title: z.string().min(2).max(160).meta({
             description: "Bullet point title",
         }),
-        description: z.string().min(10).max(150).meta({
+        description: z.string().min(10).max(300).meta({
             description: "Bullet point description",
         }),
     })).min(1).max(3).default([
@@ -70,7 +70,7 @@ const NumberedBulletsSlideLayout: React.FC<NumberedBulletsSlideLayoutProps> = ({
                     background:"var(--card-background-color,#ffffff)"
                 }}
             >
-                {(slideData as any)?.__companyName__ && (
+                {/* {(slideData as any)?.__companyName__ && (
                     <div className="absolute top-0 left-0 right-0 px-8 sm:px-12 lg:px-20 pt-4">
                         <div className="flex items-center gap-4">
                             <span className="text-sm sm:text-base font-semibold" style={{ color: 'var(--text-heading-color, #111827)' }}>
@@ -79,7 +79,7 @@ const NumberedBulletsSlideLayout: React.FC<NumberedBulletsSlideLayoutProps> = ({
                             <div className="h-[2px] flex-1 opacity-70" style={{ backgroundColor: 'var(--text-heading-color, #111827)' }}></div>
                         </div>
                     </div>
-                )}
+                )} */}
 
                 {/* Main Content Container */}
                 <div className="px-8 sm:px-12 lg:px-20 pt-12 pb-8 h-full">
@@ -87,7 +87,7 @@ const NumberedBulletsSlideLayout: React.FC<NumberedBulletsSlideLayoutProps> = ({
                     <div className="flex items-start justify-between mb-8">
                         {/* Title Section */}
                         <div className="flex-1 pr-8">
-                            <h1 style={{ color: "var(--text-heading-color,#111827)" }} className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-4">
+                            <h1 style={{ color: "var(--text-heading-color,#111827)" }} className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-normal mb-4">
                                 {slideData?.title || 'Market Validation'}
                             </h1>
                             {/* Purple accent line */}

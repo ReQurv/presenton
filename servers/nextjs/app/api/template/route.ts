@@ -33,15 +33,15 @@ export async function GET(request: Request) {
     });
     const page = await browser.newPage();
     await page.setViewport({ width: 1280, height: 720 });
-    page.setDefaultNavigationTimeout(300000);
-    page.setDefaultTimeout(300000);
+    page.setDefaultNavigationTimeout(400000);
+    page.setDefaultTimeout(400000);
     await page.goto(schemaPageUrl, {
       waitUntil: "networkidle0",
-      timeout: 300000,
+      timeout: 400000,
     });
 
-    await page.waitForSelector("[data-layouts]", { timeout: 300000 });
-    await page.waitForSelector("[data-settings]", { timeout: 300000 });
+    await page.waitForSelector("[data-layouts]", { timeout: 400000 });
+    await page.waitForSelector("[data-settings]", { timeout: 400000 });
 
     const { dataLayouts, dataGroupSettings } = await page.$eval(
       "[data-layouts]",

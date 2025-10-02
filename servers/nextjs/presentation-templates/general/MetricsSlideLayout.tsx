@@ -6,20 +6,20 @@ export const layoutName = 'Metrics'
 export const layoutDescription = 'A slide layout for showcasing key business metrics with large numbers and descriptive text boxes. This should only be used with metrics and numbers.'
 
 const metricsSlideSchema = z.object({
-    title: z.string().min(3).max(100).default('Company Traction').meta({
+    title: z.string().min(3).max(200).default('Company Traction').meta({
         description: "Main title of the slide",
     }),
     metrics: z.array(z.object({
-        label: z.string().min(2).max(50).meta({
+        label: z.string().min(2).max(100).meta({
             description: "Metric label/title"
         }),
-        value: z.string().min(1).max(10).meta({
+        value: z.string().min(1).max(20).meta({
             description: "Metric value (e.g., 150+, 95%, $2M). No long values. Keep simple number."
         }),
-        description: z.string().min(10).max(150).meta({
+        description: z.string().min(10).max(300).meta({
             description: "Detailed description of the metric. Explanation of the metric."
         }),
-    })).min(2).max(3).default([
+    })).min(2).max(6).default([
         {
             value: '150+',
             label: 'Clients Onboarded',
@@ -89,7 +89,7 @@ const MetricsSlideLayout: React.FC<MetricsSlideLayoutProps> = ({ data: slideData
                     background:"var(--card-background-color,#ffffff)"
                 }}
             >
-                {(slideData as any)?.__companyName__ && (
+                {/* {(slideData as any)?.__companyName__ && (
                     <div className="absolute top-0 left-0 right-0 px-8 sm:px-12 lg:px-20 pt-4">
                         <div className="flex items-center gap-4">
                             <span className="text-sm sm:text-base font-semibold" style={{ color: 'var(--text-heading-color, #111827)' }}>
@@ -98,7 +98,7 @@ const MetricsSlideLayout: React.FC<MetricsSlideLayoutProps> = ({ data: slideData
                             <div className="h-[2px] flex-1 opacity-70" style={{ backgroundColor: 'var(--text-heading-color, #111827)' }}></div>
                         </div>
                     </div>
-                )}
+                )} */}
                 {/* Decorative Wave Patterns */}
                 <div className="absolute top-0 left-0 w-64 h-full opacity-10 overflow-hidden">
                     <svg className="w-full h-full" viewBox="0 0 200 400" fill="none">
